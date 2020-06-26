@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="FileManagerUI.Custom_Controls.CardButtons"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FileManagerUI.Custom_Controls"
+             mc:Ignorable="d" x:Name="_cardButton"
+             d:DesignHeight="150" d:DesignWidth="250" MinHeight="150" MinWidth="250">
+    <UserControl.Resources>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FF707070"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="20" SnapsToDevicePixels="True">
+                            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="True">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#3BA2EA"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#3BA2EA"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                            </Trigger>
+                            <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="#3BA2EA"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="border" Value="lightslategray"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                <Setter Property="Foreground" Value="#FF838383"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="buttonIconBackground" TargetType="Border">
+            <Setter Property="Background" Value="{Binding ElementName=_cardButton, Path=IconBackground}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" Value="True">
+                    <Setter Property="Background" Value="{Binding ElementName=_cardButton, Path=IconBackgroundMouseOver}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="TextStyle1" TargetType="TextBlock">
+            <Setter Property="Margin" Value="25,0,0,0"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" Value="true">
+                    <Setter Property="Foreground" Value="White"/>
+                </DataTrigger>                
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="TextStyle2" TargetType="TextBlock">
+            <Setter Property="Margin" Value="25,0,0,0"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="LightSlateGray"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" Value="true">
+                    <Setter Property="Foreground" Value="White"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="ProgressBarStyle" TargetType="local:CircularProgressBar">
+            <Setter Property="Margin" Value="0,0,0,22"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Height" Value="54"/>
+            <Setter Property="Width" Value="54"/>
+            <Setter Property="Value" Value="{Binding ElementName=_cardButton, Path=Progress}"/>
+            <Setter Property="FontSize" Value="{Binding ElementName=_cardButton, Path=FontSize}"/>
+            <Setter Property="ArcThickness" Value="{Binding ElementName=_cardButton, Path=ProgressBarThickness}"/>
+            <Setter Property="BackgroundBrush" Value="{Binding ElementName=_cardButton, Path=ProgressBackgroundBrush}"/>
+            <Setter Property="IndicatorBrush" Value="{Binding ElementName=_cardButton, Path=ProgressIndicatorBrush}"/>
+            <Setter Property="PFontColor" Value="{Binding ElementName=_cardButton,Path=ProgressTextColor}"/>
+            <Setter Property="PFontWeight" Value="{Binding ElementName=_cardButton,Path=ProgressTextWeight}"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}" Value="True">
+                    <Setter Property="BackgroundBrush" Value="{Binding ElementName=_cardButton, Path=ProgressBackgroundBrushMouseOver}"/>
+                    <Setter Property="IndicatorBrush" Value="{Binding ElementName=_cardButton, Path=ProgressIndicatorBrushMouseOver}"/>
+                    <Setter Property="PFontColor" Value="{Binding ElementName=_cardButton,Path=ProgressTextColorMouseOver}"/>
+                    <Setter Property="PFontWeight" Value="{Binding ElementName=_cardButton,Path=ProgressTextWeightMouseOver}"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Button Style="{DynamicResource ButtonStyle}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="0" CornerRadius="10" HorizontalAlignment="Left" Margin="25,5,0,0" VerticalAlignment="Center" Height="35" Width="35" Style="{StaticResource buttonIconBackground}">
+                    <Image Width="20" Stretch="Uniform" Source="{Binding ElementName=_cardButton, Path=imageSource, TargetNullValue={x:Null}}"/>
+                </Border>
+                <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical" VerticalAlignment="Stretch">
+                    <TextBlock Text="{Binding ElementName=_cardButton, Path=text1}" Style="{StaticResource TextStyle1}"/>
+                    <TextBlock Text="{Binding ElementName=_cardButton, Path=text2}" Style="{StaticResource TextStyle2}"/>
+                </StackPanel>
+                <local:CircularProgressBar Grid.Column="1" Grid.RowSpan="2"  Style="{StaticResource ProgressBarStyle}"/>
+            </Grid>
+        </Button>
+    </Grid>
+</UserControl>

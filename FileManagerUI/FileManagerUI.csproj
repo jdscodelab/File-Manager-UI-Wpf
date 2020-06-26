@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{78C74263-87C6-49DC-9281-986BAE384254}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FileManagerUI</RootNamespace>
+    <AssemblyName>FileManagerUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Expression.Drawing.3.0.0\lib\net40\Microsoft.Expression.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Custom Controls\ActivityCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Custom Controls\CardButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Custom Controls\CircularProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Custom Controls\FileListControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Custom Controls\ImageButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\ActivityCard.xaml.cs">
+      <DependentUpon>ActivityCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\CardButtons.xaml.cs">
+      <DependentUpon>CardButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\CircularProgressBar.xaml.cs">
+      <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\FileListControl.xaml.cs">
+      <DependentUpon>FileListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\ImageButtons.xaml.cs">
+      <DependentUpon>ImageButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Custom Controls\mediumSizeButtons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Custom Controls\proCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Custom Controls\mediumSizeButtons.xaml.cs">
+      <DependentUpon>mediumSizeButtons.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\proCard.xaml.cs">
+      <DependentUpon>proCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\applogoexample.png" />
+    <Resource Include="Assets\apps.png" />
+    <Resource Include="Assets\bell.png" />
+    <Resource Include="Assets\bell_16.png" />
+    <Resource Include="Assets\bell_64.png" />
+    <Resource Include="Assets\calendarcolor.png" />
+    <Resource Include="Assets\calendarwhite.png" />
+    <Resource Include="Assets\cartcolor.png" />
+    <Resource Include="Assets\cartwhite.png" />
+    <Resource Include="Assets\chatcolor.png" />
+    <Resource Include="Assets\chatwhite.png" />
+    <Resource Include="Assets\closecolor.png" />
+    <Resource Include="Assets\closewhite.png" />
+    <Resource Include="Assets\cloud.png" />
+    <Resource Include="Assets\contacts.png" />
+    <Resource Include="Assets\desk.jpg" />
+    <Resource Include="Assets\desk2.jpg" />
+    <Resource Include="Assets\document.png" />
+    <Resource Include="Assets\downloadsfolder.png" />
+    <Resource Include="Assets\dropbox.png" />
+    <Resource Include="Assets\folder.png" />
+    <Resource Include="Assets\googledrive.png" />
+    <Resource Include="Assets\image.png" />
+    <Resource Include="Assets\image1.jpg" />
+    <Resource Include="Assets\image2.jpg" />
+    <Resource Include="Assets\image3.jpg" />
+    <Resource Include="Assets\image4.jpg" />
+    <Resource Include="Assets\image5.jpg" />
+    <Resource Include="Assets\image6.jpg" />
+    <Resource Include="Assets\image6.png" />
+    <Resource Include="Assets\image7.jpg" />
+    <Resource Include="Assets\image8.jpg" />
+    <Resource Include="Assets\image9.jpg" />
+    <Resource Include="Assets\left.png" />
+    <Resource Include="Assets\Logo.png" />
+    <Resource Include="Assets\logoutwhite.png" />
+    <Resource Include="Assets\mailcolor.png" />
+    <Resource Include="Assets\mailwhite.png" />
+    <Resource Include="Assets\mmc.png" />
+    <Resource Include="Assets\music.png" />
+    <Resource Include="Assets\notifcolor.png" />
+    <Resource Include="Assets\notifwhite.png" />
+    <Resource Include="Assets\onedrive.png" />
+    <Resource Include="Assets\plus.png" />
+    <Resource Include="Assets\profilewhite.png" />
+    <Resource Include="Assets\profolder.png" />
+    <Resource Include="Assets\recent.png" />
+    <Resource Include="Assets\right.png" />
+    <Resource Include="Assets\right2.png" />
+    <Resource Include="Assets\search.png" />
+    <Resource Include="Assets\searchcolor.png" />
+    <Resource Include="Assets\searchwhite.png" />
+    <Resource Include="Assets\settings.png" />
+    <Resource Include="Assets\share.png" />
+    <Resource Include="Assets\sms.png" />
+    <Resource Include="Assets\star.png" />
+    <Resource Include="Assets\testprofile.jpg" />
+    <Resource Include="Assets\todobw.png" />
+    <Resource Include="Assets\todocolor.png" />
+    <Resource Include="Assets\trash.png" />
+    <Resource Include="Assets\video.png" />
+    <Resource Include="Assets\zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\noimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\play.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
